@@ -7,7 +7,8 @@ const {
   removeMaxim,
 } = require("../controllers/maxims");
 
-router.get("/:id?", getMaxims).post("/", addMaxim)
+router.get("/:id?", getMaxims)
+.post("/", addMaxim)
 .put("/:id", updateMaxim)
 .delete("/:id", removeMaxim);
 

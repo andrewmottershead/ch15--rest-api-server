@@ -20,7 +20,8 @@ exports.addMaxim = async function (req, res) {
 
     try {
         const newMaxim = new Maxim(maximData);
-        const maxim = newMaxim.save();
+        console.log(newMaxim, maximData)
+        const maxim = await newMaxim.save();
         return res.status(201).json(maxim);
     }   catch (err) {
         res.status(500).send(err);
