@@ -2,6 +2,7 @@ const express = require ("express");
 
 module.exports = function(app) {
     app.use(express.static("public"));
+    app.use(express.json());
 
 const maxims = [{ saying: "One man's meat is another man's croissant" }, { saying: "Opposites detract" }];
 
@@ -12,6 +13,6 @@ app.get("/api/v1/maxims", (req, res) => {
 app.post("/api/v1/maxims", (req, res) => {
     const newMaxim = req.body;
     maxims.push(newMaxim);
-    req.sendStatus(201);
+    res.sendStatus(201);
     });
 };
